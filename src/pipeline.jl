@@ -65,13 +65,12 @@ function _get_canonical(doc::Documenter.Document)
 end
 
 function _html_path(build_dir, src)
-    # Documenter uses pretty URLs: index.md -> index.html, other.md -> other/index.html
     base = replace(src, r"\.md$" => "")
-    if basename(base) == "index"
-        joinpath(build_dir, base * ".html")
-    else
-        joinpath(build_dir, base, "index.html")
-    end
+    # Pretty URLs: other.md -> other/index.html; flat URLs: other.md -> other.html
+    pretty = joinpath(build_dir, base, "index.html")
+    flat = joinpath(build_dir, base * ".html")
+    isfile(pretty) && return pretty
+    return flat
 end
 
 function _copy_source!(doc, source_path, html_path)
