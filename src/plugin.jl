@@ -1,11 +1,28 @@
 using Documenter: Plugin
 
+"""
+    Provider(name, base_url, suffix)
+
+An AI provider configuration for the "Open in AI" dropdown.
+
+# Fields
+
+- `name::String`: Display name shown in the dropdown (e.g. `"Claude"`)
+- `base_url::String`: Base URL for the provider, to which the encoded query is appended
+- `suffix::String`: Optional suffix appended after the encoded query (e.g. `"&hints=search"`)
+"""
 struct Provider
     name::String
     base_url::String
     suffix::String
 end
 
+"""
+    DEFAULT_PROVIDERS
+
+Default list of AI providers included in the "Open in AI" dropdown:
+Claude, ChatGPT, Perplexity, Grok, T3, v0, Cursor, and Zed.
+"""
 const DEFAULT_PROVIDERS = Provider[
     Provider("Claude",     "https://claude.ai/new?q=",              ""),
     Provider("ChatGPT",    "https://chatgpt.com/?q=",               "&hints=search"),
@@ -17,6 +34,45 @@ const DEFAULT_PROVIDERS = Provider[
     Provider("Zed",        "zed://agent?prompt=",                   ""),
 ]
 
+"""
+    CopyButton(; providers=nothing, prompt="Read")
+
+A [`Documenter.Plugin`] that adds floating "Copy as Markdown" and "Open in AI"
+buttons to opted-in documentation pages.
+
+Pages opt in by including a [`@copybutton`](@ref CopyButtonBlocks) block in their markdown source.
+
+# Keyword Arguments
+
+- `providers`: A list of AI providers for the "Open in AI" dropdown.
+  Defaults to [`DEFAULT_PROVIDERS`](@ref). Each element can be:
+  - A [`Provider`](@ref) instance
+  - A `name => base_url` pair (suffix defaults to `""`)
+  - A `name => (base_url, suffix)` pair
+  Set to an empty list to disable the "Open in AI" button.
+- `prompt`: A prefix string prepended to the URL when opening in an AI provider.
+  Defaults to `"Read"`.
+
+# Example
+
+```julia
+using DocumenterCopyButton: CopyButton
+
+makedocs(;
+    plugins = [CopyButton()],
+    # ...
+)
+```
+
+Custom providers:
+
+```julia
+CopyButton(providers = [
+    "Claude" => "https://claude.ai/new?q=",
+    "MyAI"   => ("https://myai.com/?q=", "&extra=1"),
+])
+```
+"""
 struct CopyButton <: Plugin
     providers::Vector{Provider}
     prompt::String

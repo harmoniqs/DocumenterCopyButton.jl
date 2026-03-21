@@ -1,9 +1,34 @@
-# @copybutton block expander
-
 using Documenter: Expanders
 import Documenter: Selectors
 using MarkdownAST: MarkdownAST
 
+"""
+    @copybutton
+
+A Documenter at-block that opts a page into the copy button feature.
+
+The block content is an optional path to the source file that should be served
+to users when they click "Copy as Markdown." The path is relative to the doc
+root (e.g. `src/tutorial.md`). If the block is empty, it defaults to the
+page's own markdown source.
+
+# Usage
+
+Opt in with the page's own source (most common):
+
+````markdown
+```@copybutton
+```
+````
+
+Opt in with a specific source file (e.g. a Literate.jl script):
+
+````markdown
+```@copybutton
+literate/tutorials/first_gate.jl
+```
+````
+"""
 abstract type CopyButtonBlocks <: Expanders.ExpanderPipeline end
 
 Selectors.order(::Type{CopyButtonBlocks}) = 2.5  # just after MetaBlocks (2.0)

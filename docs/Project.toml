@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterCopyButton = "e492c155-30e5-4d09-a3ac-117479612e06"
+
+[sources]
+DocumenterCopyButton = {path = ".."}
