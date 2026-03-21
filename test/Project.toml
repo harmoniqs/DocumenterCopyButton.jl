@@ -1,0 +1,12 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterCopyButton = "e492c155-30e5-4d09-a3ac-117479612e06"
+IOCapture = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+IOCapture = "0.2.4, 0.2.5, 1.0"
+
+[sources]
+DocumenterCopyButton = {path = ".."}
