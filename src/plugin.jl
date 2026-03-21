@@ -35,7 +35,7 @@ const DEFAULT_PROVIDERS = Provider[
 ]
 
 """
-    CopyButton(; providers=nothing, prompt="Read")
+    CopyButton(; providers=nothing, prompt="Read", copy_label="Copy for AI")
 
 A [`Documenter.Plugin`] that adds floating "Copy as Markdown" and "Open in AI"
 buttons to opted-in documentation pages.
@@ -52,6 +52,7 @@ Pages opt in by including a [`@copybutton`](@ref CopyButtonBlocks) block in thei
   Set to an empty list to disable the "Open in AI" button.
 - `prompt`: A prefix string prepended to the URL when opening in an AI provider.
   Defaults to `"Read"`.
+- `copy_label`: Label text for the copy button. Defaults to `"Copy for AI"`.
 
 # Example
 
@@ -76,10 +77,12 @@ CopyButton(providers = [
 struct CopyButton <: Plugin
     providers::Vector{Provider}
     prompt::String
+    copy_label::String
 
     function CopyButton(;
         providers=nothing,
         prompt="Read",
+        copy_label="Copy for AI",
     )
         provs = if providers === nothing
             copy(DEFAULT_PROVIDERS)
@@ -91,6 +94,6 @@ struct CopyButton <: Plugin
                 for p in providers
             ]
         end
-        new(provs, prompt)
+        new(provs, prompt, copy_label)
     end
 end

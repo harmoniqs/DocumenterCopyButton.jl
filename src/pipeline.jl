@@ -108,7 +108,7 @@ function _inject_html!(html_path, plugin, md_filename, md_content, rel_prefix, c
 
     injection = """
     <script id="documenter-copybutton-config" type="application/json">
-    {"mdUrl":$(json_str(md_url)),"providers":[$providers_json],"prompt":$(json_str(plugin.prompt))$canonical_field,"pagePath":$(json_str(src))}
+    {"mdUrl":$(json_str(md_url)),"providers":[$providers_json],"prompt":$(json_str(plugin.prompt)),"copyLabel":$(json_str(plugin.copy_label))$canonical_field,"pagePath":$(json_str(src))}
     </script>
     <script id="documenter-copybutton-content" type="text/plain">$(escaped_md)</script>
     <link rel="stylesheet" href="$(rel_prefix)copybutton.css"/>
