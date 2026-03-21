@@ -1,3 +1,6 @@
+```@copybutton
+```
+
 # Usage with Literate.jl
 
 If your documentation pages are generated from Julia scripts via

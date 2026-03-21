@@ -1,3 +1,6 @@
+```@copybutton
+```
+
 # API Reference
 
 ## Plugin
