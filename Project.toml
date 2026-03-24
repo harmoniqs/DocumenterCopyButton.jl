@@ -1,6 +1,6 @@
 name = "DocumenterCopyButton"
 uuid = "e492c155-30e5-4d09-a3ac-117479612e06"
-version = "0.2.1"
+version = "0.1.1"
 authors = ["Jack Champagne <jack@harmoniqs.co>"]
 
 [deps]
