@@ -63,11 +63,11 @@ body:has(.modal.is-active) .copybutton-container {
 }
 
 /* Override Bulma dropdown-item to work as block links in our context */
-.copybutton-dropdown .dropdown-item {
+.copybutton-dropdown a.dropdown-item {
   cursor: pointer;
   font-size: 0.8rem;
   white-space: nowrap;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
