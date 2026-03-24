@@ -97,7 +97,24 @@
         var item = document.createElement("a");
         item.className = "dropdown-item";
         item.setAttribute("role", "menuitem");
-        item.textContent = provider.name || "Open";
+        var nameSpan = document.createElement("span");
+        nameSpan.textContent = provider.name || "Open";
+        item.appendChild(nameSpan);
+        var redirectSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        redirectSvg.setAttribute("width", "8");
+        redirectSvg.setAttribute("height", "8");
+        redirectSvg.setAttribute("viewBox", "0 0 8 8");
+        redirectSvg.setAttribute("fill", "none");
+        redirectSvg.setAttribute("aria-hidden", "true");
+        redirectSvg.classList.add("copybutton-redirect-icon");
+        var redirectPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        redirectPath.setAttribute("d", "M2.91667 0.75H7.25M7.25 0.75V5.08333M7.25 0.75L0.75 7.25");
+        redirectPath.setAttribute("stroke", "currentColor");
+        redirectPath.setAttribute("stroke-width", "1.5");
+        redirectPath.setAttribute("stroke-linecap", "round");
+        redirectPath.setAttribute("stroke-linejoin", "round");
+        redirectSvg.appendChild(redirectPath);
+        item.appendChild(redirectSvg);
         item.href = "#";
         item.addEventListener("click", function (e) {
           e.preventDefault();
