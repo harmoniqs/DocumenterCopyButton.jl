@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · DocumenterCopyButton.jl</title><meta name="title" content="Home · DocumenterCopyButton.jl"/><meta property="og:title" content="Home · DocumenterCopyButton.jl"/><meta property="twitter:title" content="Home · DocumenterCopyButton.jl"/><meta name="description" content="Documentation for DocumenterCopyButton.jl."/><meta property="og:description" content="Documentation for DocumenterCopyButton.jl."/><meta property="twitter:description" content="Documentation for DocumenterCopyButton.jl."/><meta property="og:url" content="https://harmoniqs.github.io/DocumenterCopyButton.jl/"/><meta property="twitter:url" content="https://harmoniqs.github.io/DocumenterCopyButton.jl/"/><link rel="canonical" href="https://harmoniqs.github.io/DocumenterCopyButton.jl/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>DocumenterCopyButton.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a><ul class="internal"><li><a class="tocitem" href="#Quick-Start"><span>Quick Start</span></a></li><li><a class="tocitem" href="#How-It-Works"><span>How It Works</span></a></li><li><a class="tocitem" href="#Features"><span>Features</span></a></li><li><a class="tocitem" href="#Specifying-a-Source-File"><span>Specifying a Source File</span></a></li><li><a class="tocitem" href="#Custom-Providers"><span>Custom Providers</span></a></li></ul></li><li><a class="tocitem" href="literate/">Literate.jl</a></li><li><a class="tocitem" href="reference/">Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/harmoniqs/DocumenterCopyButton.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/harmoniqs/DocumenterCopyButton.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="DocumenterCopyButton.jl"><a class="docs-heading-anchor" href="#DocumenterCopyButton.jl">DocumenterCopyButton.jl</a><a id="DocumenterCopyButton.jl-1"></a><a class="docs-heading-anchor-permalink" href="#DocumenterCopyButton.jl" title="Permalink"></a></h1><p>A <a href="https://documenter.juliadocs.org/">Documenter.jl</a> plugin that adds floating <strong>&quot;Copy as Markdown&quot;</strong> and <strong>&quot;Open in AI&quot;</strong> buttons to opted-in documentation pages.</p><h2 id="Quick-Start"><a class="docs-heading-anchor" href="#Quick-Start">Quick Start</a><a id="Quick-Start-1"></a><a class="docs-heading-anchor-permalink" href="#Quick-Start" title="Permalink"></a></h2><p>Add <code>DocumenterCopyButton</code> to your docs environment, then pass the plugin to <code>makedocs</code>:</p><pre><code class="language-julia hljs">using Documenter
+using DocumenterCopyButton
+
+makedocs(;
+    plugins = [CopyButton()],
+    # ...
+)</code></pre><p>Then add a <code>@copybutton</code> block to any page you want to enable:</p><pre><code class="language-markdown hljs">```@copybutton
+```</code></pre><p>That&#39;s it! The page will now show floating buttons in the bottom-right corner.</p><h2 id="How-It-Works"><a class="docs-heading-anchor" href="#How-It-Works">How It Works</a><a id="How-It-Works-1"></a><a class="docs-heading-anchor-permalink" href="#How-It-Works" title="Permalink"></a></h2><ol><li><p><strong><code>@copybutton</code> block</strong> — A custom Documenter at-block that opts a page in. The block content is an optional path to a source file; if empty, it defaults to the page&#39;s own markdown source.</p></li><li><p><strong>Post-render pipeline step</strong> — After Documenter renders HTML, the plugin:</p><ul><li>Copies the source file alongside the HTML output</li><li>Embeds the markdown content directly in the HTML (for offline/<code>file://</code> support)</li><li>Injects a floating UI with JS/CSS</li></ul></li><li><p><strong>Client-side JS</strong> — Vanilla JavaScript creates the floating button group:</p><ul><li><strong>Copy</strong> — copies the markdown source to the clipboard</li><li><strong>AI</strong> — dropdown with configurable AI providers that open the page URL in a new tab with a prompt prefix</li></ul></li></ol><h2 id="Features"><a class="docs-heading-anchor" href="#Features">Features</a><a id="Features-1"></a><a class="docs-heading-anchor-permalink" href="#Features" title="Permalink"></a></h2><ul><li>Works with <code>file://</code> URLs (no server required) — markdown is embedded in the HTML</li><li>Bulma-native theming — buttons and dropdown inherit Documenter&#39;s active theme</li><li>Modal-aware — buttons hide behind Documenter&#39;s settings/search overlays</li><li>Supports all Documenter themes (light, dark, catppuccin variants)</li><li>Hidden on mobile (<code>&lt; 768px</code>)</li></ul><h2 id="Specifying-a-Source-File"><a class="docs-heading-anchor" href="#Specifying-a-Source-File">Specifying a Source File</a><a id="Specifying-a-Source-File-1"></a><a class="docs-heading-anchor-permalink" href="#Specifying-a-Source-File" title="Permalink"></a></h2><p>By default, <code>@copybutton</code> uses the page&#39;s own markdown source. You can specify a different file (e.g. a Literate.jl script):</p><pre><code class="language-markdown hljs">```@copybutton
+literate/tutorials/first_gate.jl
+```</code></pre><p>The path is relative to the doc root directory.</p><h2 id="Custom-Providers"><a class="docs-heading-anchor" href="#Custom-Providers">Custom Providers</a><a id="Custom-Providers-1"></a><a class="docs-heading-anchor-permalink" href="#Custom-Providers" title="Permalink"></a></h2><p>Override the default AI providers:</p><pre><code class="language-julia hljs">CopyButton(providers = [
+    &quot;Claude&quot; =&gt; &quot;https://claude.ai/new?q=&quot;,
+    &quot;MyAI&quot;   =&gt; (&quot;https://myai.com/?q=&quot;, &quot;&amp;extra=1&quot;),
+])</code></pre><p>Or disable the AI dropdown entirely:</p><pre><code class="language-julia hljs">CopyButton(providers = [])</code></pre></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="literate/">Literate.jl »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Wednesday 25 March 2026 06:01">Wednesday 25 March 2026</span>. Using Julia version 1.12.5.</p></section><footer class="modal-card-foot"></footer></div></div></div><script id="documenter-copybutton-config" type="application/json">
+{"mdUrl":"./index.md","providers":[{"name":"ChatGPT","base":"https://chatgpt.com/?q=","suffix":"&hints=search"},{"name":"Claude (beta)","base":"https://claude.ai/new?q=","suffix":""},{"name":"Perplexity","base":"https://www.perplexity.ai/?q=","suffix":""},{"name":"Grok","base":"https://x.com/i/grok?text=","suffix":""},{"name":"v0","base":"https://v0.app/chat?q=","suffix":""},{"name":"Cursor","base":"https://cursor.com/link/prompt?text=","suffix":""},{"name":"Zed","base":"zed://agent?prompt=","suffix":""}],"prompt":"Read","copyLabel":"Copy for AI","pagePath":"index.md"}
+</script>
+<script id="documenter-copybutton-content" type="text/plain">```@copybutton
+```
+
+# DocumenterCopyButton.jl
+
+A [Documenter.jl](https://documenter.juliadocs.org/) plugin that adds floating
+**"Copy as Markdown"** and **"Open in AI"** buttons to opted-in documentation pages.
+
+## Quick Start
+
+Add `DocumenterCopyButton` to your docs environment, then pass the plugin to `makedocs`:
+
+```julia
+using Documenter
+using DocumenterCopyButton
+
+makedocs(;
+    plugins = [CopyButton()],
+    # ...
+)
+```
+
+Then add a `@copybutton` block to any page you want to enable:
+
+````markdown
+```@copybutton
+```
+````
+
+That's it! The page will now show floating buttons in the bottom-right corner.
+
+## How It Works
+
+1. **`@copybutton` block** — A custom Documenter at-block that opts a page in.
+   The block content is an optional path to a source file; if empty, it defaults
+   to the page's own markdown source.
+
+2. **Post-render pipeline step** — After Documenter renders HTML, the plugin:
+   - Copies the source file alongside the HTML output
+   - Embeds the markdown content directly in the HTML (for offline/`file://` support)
+   - Injects a floating UI with JS/CSS
+
+3. **Client-side JS** — Vanilla JavaScript creates the floating button group:
+   - **Copy** — copies the markdown source to the clipboard
+   - **AI** — dropdown with configurable AI providers that open the page URL
+     in a new tab with a prompt prefix
+
+## Features
+
+- Works with `file://` URLs (no server required) — markdown is embedded in the HTML
+- Bulma-native theming — buttons and dropdown inherit Documenter's active theme
+- Modal-aware — buttons hide behind Documenter's settings/search overlays
+- Supports all Documenter themes (light, dark, catppuccin variants)
+- Hidden on mobile (`< 768px`)
+
+## Specifying a Source File
+
+By default, `@copybutton` uses the page's own markdown source. You can specify
+a different file (e.g. a Literate.jl script):
+
+````markdown
+```@copybutton
+literate/tutorials/first_gate.jl
+```
+````
+
+The path is relative to the doc root directory.
+
+## Custom Providers
+
+Override the default AI providers:
+
+```julia
+CopyButton(providers = [
+    "Claude" => "https://claude.ai/new?q=",
+    "MyAI"   => ("https://myai.com/?q=", "&extra=1"),
+])
+```
+
+Or disable the AI dropdown entirely:
+
+```julia
+CopyButton(providers = [])
+```
+</script>
+<link rel="stylesheet" href="assets/copybutton.css"/>
+<script src="assets/copybutton.js"></script>
+
+</body></html>
