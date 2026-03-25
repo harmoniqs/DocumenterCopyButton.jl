@@ -17,5 +17,6 @@ makedocs(;
 
 deploydocs(;
     repo="github.com/harmoniqs/DocumenterCopyButton.jl",
+    versions = ["dev" => "dev", "stable" => "v^", "v#.#"],
     devbranch="main",
 )
