@@ -21,13 +21,14 @@
     var pagePath = config.pagePath || "";
 
     // Resolve the full markdown URL for AI provider links
+    // Use current page location to get the correct deployed path (includes dev/, stable/, etc.)
     var fullMdUrl;
-    if (canonicalBase && pagePath) {
-      var base = canonicalBase.replace(/\/$/, "");
-      var page = pagePath.replace(/^\//, "");
-      fullMdUrl = base + "/" + page;
+    if (mdUrl) {
+      var loc = window.location;
+      var basePath = loc.pathname.replace(/[^/]*$/, "");
+      fullMdUrl = loc.origin + basePath + mdUrl.replace(/^\.\//, "");
     } else {
-      fullMdUrl = mdUrl;
+      fullMdUrl = "";
     }
 
     // --- Build DOM ---
