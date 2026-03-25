@@ -21,14 +21,13 @@ end
     DEFAULT_PROVIDERS
 
 Default list of AI providers included in the "Open in AI" dropdown:
-Claude, ChatGPT, Perplexity, Grok, T3, v0, Cursor, and Zed.
+Claude, ChatGPT, Perplexity, Grok, v0, Cursor, and Zed.
 """
 const DEFAULT_PROVIDERS = Provider[
     Provider("Claude",     "https://claude.ai/new?q=",              ""),
     Provider("ChatGPT",    "https://chatgpt.com/?q=",               "&hints=search"),
     Provider("Perplexity", "https://www.perplexity.ai/?q=",         ""),
     Provider("Grok",       "https://x.com/i/grok?text=",            ""),
-    Provider("T3",         "https://t3.chat/new?q=",                ""),
     Provider("v0",         "https://v0.app/chat?q=",                ""),
     Provider("Cursor",     "https://cursor.com/link/prompt?text=",  ""),
     Provider("Zed",        "zed://agent?prompt=",                   ""),
